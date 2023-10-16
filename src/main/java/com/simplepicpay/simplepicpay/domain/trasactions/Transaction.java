@@ -1,6 +1,7 @@
 package com.simplepicpay.simplepicpay.domain.trasactions;
 
 import com.simplepicpay.simplepicpay.domain.user.User;
+import com.simplepicpay.simplepicpay.dtos.TransactionDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,7 +21,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal amount;
+    private BigDecimal value;
 
     @ManyToOne
     @JoinColumn(name = "sender_id")
@@ -32,4 +33,9 @@ public class Transaction {
 
     private LocalDateTime timestamp;
 
+    public Transaction(BigDecimal value, User sender, User receiver) {
+        this.value      = value;
+        this.sender     = sender;
+        this.receiver   = receiver;
+    }
 }
