@@ -29,6 +29,7 @@ public class AuthorizationTransaction implements ValidatorTransaction {
 //        }
 
         int autorizationNumberOp = new Random().nextInt(2);
+        System.out.println(autorizationNumberOp);
         if(autorizationNumberOp == 0) {
             throw new TransactionException("Unauthorized transaction");
         }

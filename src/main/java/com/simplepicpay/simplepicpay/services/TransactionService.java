@@ -21,6 +21,9 @@ public class TransactionService {
     private UserService userService;
 
     @Autowired
+    private NotificationService notificationService;
+
+    @Autowired
     private List<ValidatorTransaction> validations;
 
     public Transaction createTransaction(TransactionDTO dataTransaction) {
@@ -31,7 +34,14 @@ public class TransactionService {
         Transaction transaction = new Transaction(dataTransaction.value(), sender, receiver);
 
         this.userService.updateUsersBalance(sender, receiver, dataTransaction.value());
+        this.notificationService.sendNotification(sender, "Transaction successfully completed.");
+        this.notificationService.sendNotification(sender, "Transaction received successfully.");
+
         return this.transactionRepository.save(transaction);
+    }
+
+    public List<Transaction> getAll() {
+        return this.transactionRepository.findAll();
     }
 
 }

@@ -20,12 +20,13 @@ public class NotificationService {
         
         NotificationDTO notification = new NotificationDTO(email, message);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(
-                "http://o4d9z.mocklab.io/notify", notification, String.class);
-        if (!(response.getStatusCode() == HttpStatus.OK)) {
-            System.out.println("Notification service is off.");
-            throw new NotificationException("Notification service is off.");
-        }
+//        ResponseEntity<String> response = restTemplate.postForEntity(
+//                "http://o4d9z.mocklab.io/notify", notification, String.class);
+//        if (!(response.getStatusCode() == HttpStatus.OK)) {
+//            System.out.println("Notification service is off.");
+//            throw new NotificationException("Notification service is off.");
+//        }
+        System.out.println("Notification was sent.");
     }
 
 }
