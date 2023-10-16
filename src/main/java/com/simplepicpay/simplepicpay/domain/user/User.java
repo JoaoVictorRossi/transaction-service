@@ -1,5 +1,6 @@
 package com.simplepicpay.simplepicpay.domain.user;
 
+import com.simplepicpay.simplepicpay.dtos.UserDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,4 +33,14 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    public User(UserDTO userDTO) {
+        this.firstName  = userDTO.firstName();
+        this.lastName   = userDTO.lastName();
+        this.document   = userDTO.document();
+        this.email      = userDTO.email();
+        this.password   = userDTO.password();
+        this.balance    = userDTO.balance();
+        this.userType   = userDTO.userType();
+    }
 }

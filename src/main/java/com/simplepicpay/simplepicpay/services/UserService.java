@@ -32,4 +32,8 @@ public class UserService {
         receiver.setBalance( receiver.getBalance().add(amount) );
     }
 
+    public List<User> getAll() {
+        return this.userRepository.findAll();
+    }
+
 }

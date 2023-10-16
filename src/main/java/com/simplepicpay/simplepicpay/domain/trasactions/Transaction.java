@@ -21,7 +21,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal value;
+    private BigDecimal amount;
 
     @ManyToOne
     @JoinColumn(name = "sender_id")
@@ -34,7 +34,7 @@ public class Transaction {
     private LocalDateTime timestamp;
 
     public Transaction(BigDecimal value, User sender, User receiver) {
-        this.value      = value;
+        this.amount     = value;
         this.sender     = sender;
         this.receiver   = receiver;
     }
