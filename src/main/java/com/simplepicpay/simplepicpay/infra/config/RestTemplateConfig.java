@@ -1,4 +1,4 @@
-package com.simplepicpay.simplepicpay.infra.exceptions.config;
+package com.simplepicpay.simplepicpay.infra.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
